@@ -111,8 +111,7 @@ Antes de poder correr la aplicación, necesitamos obtener el código fuente y de
     ```
 - **1.3)** ¿Puede hacer algo para optimizar o mejorar la imagen?. Describa qué modificaciones puede hacer para optimizar la imagen.
     ```bash
-    Se puede optimizar usando la imagen base FROM node:18-alpine, que ya incluye Node.js y Yarn, evitando pasos de instalación adicionales y reduciendo el tamaño final de la imagen.
-    ```
+    En lugar de FROM alpine:latest, podemos usar una versión específica (FROM alpine:3.20), ya que si Alpine publica una nueva versión, la imagen también cambia.
 
 
 > [!TIP]
@@ -126,18 +125,21 @@ Una vez creada la imágen, debería ser capaz de correr la aplicación.
 
 - **1.4)** Ejecute un comando para poder correr la aplicación.
     ```bash
-    # Escriba acá el comando
+    docker run -d -p 3000:3000 app:1.0
     ```
 - **1.5)** Explique el comando de la respuesta anterior y cada parámetro enviado.
     ```bash
-    # Escriba la explicación
+    Con docker run se crea y ejecuta un contenedor a partir de la imagen creada app:1.0.
+    -d: Indica que el contenedor se ejecutará en segundo plano (modo detached o daemon).
+    -p: Indica que se publicarán puertos hacia afuera del contenedor. En este caso, 3000:3000 mapea el puerto 3000 de nuestra PC al puerto 3000 del contenedor.
     ```
 - **1.6)** ¿Cómo puede saber si el contenedor está corriendo?
     ```bash
-    # Escriba acá el comando
+    Al ejecutar docker ps tiene que aparecer el contenedor en la lista.
     ```
 - **1.7)** Adjunte una captura de pantalla con la aplicación funcionando con la URL utilizada para acceder. Reemplace la imágen siguiente por su captura de pantalla.
-    ![](./imgs/broken_img.png)
+    <img width="1251" height="300" alt="image" src="https://github.com/user-attachments/assets/512a2c97-2b43-41e9-a000-f311666f857a" />
+
 
 
 ## Parte 2 - Actualizar aplicación
