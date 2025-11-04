@@ -103,15 +103,15 @@ Antes de poder correr la aplicación, necesitamos obtener el código fuente y de
 
 - **1.1)** Ejecute el comando correspondiente para buildear la imagen. Elija un nombre de imagen y un tag acorde. 
     ```bash
-    # Escriba acá el comando utilizado
+    docker build -t app:1.0 .
     ```
 - **1.2)** ¿Qué espacio ocupa la imagen una vez creada?
     ```bash
-    # Espacio utilizado
+    282MB
     ```
 - **1.3)** ¿Puede hacer algo para optimizar o mejorar la imagen?. Describa qué modificaciones puede hacer para optimizar la imagen.
     ```bash
-    # Describa que podría hacer para mejorar u optimizar la creación de la imágen.
+    Se puede optimizar usando la imagen base FROM node:18-alpine, que ya incluye Node.js y Yarn, evitando pasos de instalación adicionales y reduciendo el tamaño final de la imagen.
     ```
 
 
