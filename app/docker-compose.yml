@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_PASSWORD: 1234
+      MYSQL_DB: todos
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app_network
+
+  app:
+    image: mariana145/app:2.0
+    container_name: app_todo
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    environment:
+      MYSQL_HOST: db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 1234
+      MYSQL_DB: todos
+    networks:
+      - app_network
+
+volumes:
+  mysql_data:
+
+networks:
+  app_network:
